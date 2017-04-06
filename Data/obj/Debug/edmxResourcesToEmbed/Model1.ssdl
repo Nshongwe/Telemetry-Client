@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Snmp_Client_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="LogID" />
+    </Key>
+    <Property Name="LogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OIDKey" Type="int" />
+    <Property Name="Value" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateTime" Type="datetime" Nullable="false" />
+    <Property Name="WMIID" Type="int" />
+    <Property Name="IPAddress" Type="nvarchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="OIDs">
+    <Key>
+      <PropertyRef Name="OIDKey" />
+    </Key>
+    <Property Name="OIDKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Item" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="OID" Type="nvarchar" MaxLength="40" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WMI">
+    <Key>
+      <PropertyRef Name="WMIID" />
+    </Key>
+    <Property Name="WMIID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <Association Name="FK_Log_OIDs">
+    <End Role="OIDs" Type="Self.OIDs" Multiplicity="0..1" />
+    <End Role="Log" Type="Self.Log" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OIDs">
+        <PropertyRef Name="OIDKey" />
+      </Principal>
+      <Dependent Role="Log">
+        <PropertyRef Name="OIDKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Log_WMI">
+    <End Role="WMI" Type="Self.WMI" Multiplicity="0..1" />
+    <End Role="Log" Type="Self.Log" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WMI">
+        <PropertyRef Name="WMIID" />
+      </Principal>
+      <Dependent Role="Log">
+        <PropertyRef Name="WMIID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="uspGetLog" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SearchString" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="Snmp_Client_DBModelStoreContainer">
+    <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OIDs" EntityType="Self.OIDs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WMI" EntityType="Self.WMI" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Log_OIDs" Association="Self.FK_Log_OIDs">
+      <End Role="OIDs" EntitySet="OIDs" />
+      <End Role="Log" EntitySet="Log" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Log_WMI" Association="Self.FK_Log_WMI">
+      <End Role="WMI" EntitySet="WMI" />
+      <End Role="Log" EntitySet="Log" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

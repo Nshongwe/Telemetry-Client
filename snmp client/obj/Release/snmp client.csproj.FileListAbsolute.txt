@@ -1,0 +1,25 @@
+c:\users\samson\documents\visual studio 2015\Projects\snmp client\snmp client\bin\Release\snmp client.exe.config
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\bin\Release\snmp client.exe
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\bin\Release\snmp client.pdb
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\bin\Release\Pocos.dll
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\bin\Release\Service.dll
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\bin\Release\SnmpSharpNet.dll
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\bin\Release\Data.dll
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\bin\Release\EntityFramework.dll
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\bin\Release\Pocos.pdb
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\bin\Release\Service.pdb
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\bin\Release\SnmpSharpNet.pdb
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\bin\Release\SnmpSharpNet.xml
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\bin\Release\Data.pdb
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\bin\Release\EntityFramework.xml
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\obj\Release\snmp client.csprojResolveAssemblyReference.cache
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\obj\Release\MainWindow.g.cs
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\obj\Release\App.g.cs
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\obj\Release\snmp client_MarkupCompile.cache
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\obj\Release\snmp client_MarkupCompile.lref
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\obj\Release\MainWindow.baml
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\obj\Release\snmp client.g.resources
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\obj\Release\snmp_client.Properties.Resources.resources
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\obj\Release\snmp client.csproj.GenerateResource.Cache
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\obj\Release\snmp client.exe
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\obj\Release\snmp client.pdb

@@ -1,0 +1,5 @@
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\Pocos\bin\Debug\Pocos.dll
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\Pocos\bin\Debug\Pocos.pdb
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\Pocos\obj\Debug\Pocos.dll
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\Pocos\obj\Debug\Pocos.pdb
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\Pocos\obj\Debug\Pocos.csprojResolveAssemblyReference.cache

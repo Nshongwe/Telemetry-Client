@@ -1,0 +1,28 @@
+c:\users\samson\documents\visual studio 2015\Projects\snmp client\snmp client\bin\Debug\snmp client.exe.config
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\bin\Debug\snmp client.exe
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\bin\Debug\snmp client.pdb
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\bin\Debug\Pocos.dll
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\bin\Debug\Service.dll
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\bin\Debug\SnmpSharpNet.dll
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\bin\Debug\Data.dll
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\bin\Debug\EntityFramework.dll
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\bin\Debug\Pocos.pdb
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\bin\Debug\Service.pdb
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\bin\Debug\SnmpSharpNet.pdb
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\bin\Debug\SnmpSharpNet.xml
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\bin\Debug\Data.pdb
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\bin\Debug\EntityFramework.xml
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\obj\Debug\snmp client.csprojResolveAssemblyReference.cache
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\obj\Debug\MainWindow.g.cs
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\obj\Debug\App.g.cs
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\obj\Debug\snmp client_MarkupCompile.cache
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\obj\Debug\snmp client_MarkupCompile.lref
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\obj\Debug\MainWindow.baml
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\obj\Debug\snmp client.g.resources
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\obj\Debug\snmp_client.Properties.Resources.resources
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\obj\Debug\snmp client.csproj.GenerateResource.Cache
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\obj\Debug\snmp client.exe
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\obj\Debug\snmp client.pdb
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Samson\Documents\Visual Studio 2015\Projects\snmp client\snmp client\bin\Debug\System.Net.Http.Formatting.xml

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Snmp_Client_DBModelStoreContainer" CdmEntityContainer="Snmp_Client_DBEntities1">
+    <EntitySetMapping Name="Logs">
+      <EntityTypeMapping TypeName="Snmp_Client_DBModel.Log">
+        <MappingFragment StoreEntitySet="Log">
+          <ScalarProperty Name="LogID" ColumnName="LogID" />
+          <ScalarProperty Name="OIDKey" ColumnName="OIDKey" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="WMIID" ColumnName="WMIID" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OIDs">
+      <EntityTypeMapping TypeName="Snmp_Client_DBModel.OID">
+        <MappingFragment StoreEntitySet="OIDs">
+          <ScalarProperty Name="OIDKey" ColumnName="OIDKey" />
+          <ScalarProperty Name="Item" ColumnName="Item" />
+          <ScalarProperty Name="OID1" ColumnName="OID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WMIs">
+      <EntityTypeMapping TypeName="Snmp_Client_DBModel.WMI">
+        <MappingFragment StoreEntitySet="WMI">
+          <ScalarProperty Name="WMIID" ColumnName="WMIID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

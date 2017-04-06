@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://webservice.theknot.com/Time" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://webservice.theknot.com/Time" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://webservice.theknot.com/Time">
+      <s:element name="currentTime">
+        <s:complexType />
+      </s:element>
+      <s:element name="currentTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="currentTimeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="currentTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:currentTime" />
+  </wsdl:message>
+  <wsdl:message name="currentTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:currentTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="currentTimeHttpGetIn" />
+  <wsdl:message name="currentTimeHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="currentTimeHttpPostIn" />
+  <wsdl:message name="currentTimeHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="GetCurrentTimeSoap">
+    <wsdl:operation name="currentTime">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Current Time from Server</wsdl:documentation>
+      <wsdl:input message="tns:currentTimeSoapIn" />
+      <wsdl:output message="tns:currentTimeSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="GetCurrentTimeHttpGet">
+    <wsdl:operation name="currentTime">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Current Time from Server</wsdl:documentation>
+      <wsdl:input message="tns:currentTimeHttpGetIn" />
+      <wsdl:output message="tns:currentTimeHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="GetCurrentTimeHttpPost">
+    <wsdl:operation name="currentTime">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Current Time from Server</wsdl:documentation>
+      <wsdl:input message="tns:currentTimeHttpPostIn" />
+      <wsdl:output message="tns:currentTimeHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GetCurrentTimeSoap" type="tns:GetCurrentTimeSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="currentTime">
+      <soap:operation soapAction="http://webservice.theknot.com/Time/currentTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GetCurrentTimeSoap12" type="tns:GetCurrentTimeSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="currentTime">
+      <soap12:operation soapAction="http://webservice.theknot.com/Time/currentTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GetCurrentTimeHttpGet" type="tns:GetCurrentTimeHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="currentTime">
+      <http:operation location="/currentTime" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GetCurrentTimeHttpPost" type="tns:GetCurrentTimeHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="currentTime">
+      <http:operation location="/currentTime" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GetCurrentTime">
+    <wsdl:port name="GetCurrentTimeSoap" binding="tns:GetCurrentTimeSoap">
+      <soap:address location="http://webservice.theknot.com/Time/GetTime.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GetCurrentTimeSoap12" binding="tns:GetCurrentTimeSoap12">
+      <soap12:address location="http://webservice.theknot.com/Time/GetTime.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GetCurrentTimeHttpGet" binding="tns:GetCurrentTimeHttpGet">
+      <http:address location="http://webservice.theknot.com/Time/GetTime.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GetCurrentTimeHttpPost" binding="tns:GetCurrentTimeHttpPost">
+      <http:address location="http://webservice.theknot.com/Time/GetTime.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

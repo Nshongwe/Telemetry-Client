@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Snmp_Client_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="LogID" />
+          </Key>
+          <Property Name="LogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OIDKey" Type="int" />
+          <Property Name="Value" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DateTime" Type="datetime" Nullable="false" />
+          <Property Name="WMIID" Type="int" />
+          <Property Name="IPAddress" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="OIDs">
+          <Key>
+            <PropertyRef Name="OIDKey" />
+          </Key>
+          <Property Name="OIDKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Item" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="OID" Type="nvarchar" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WMI">
+          <Key>
+            <PropertyRef Name="WMIID" />
+          </Key>
+          <Property Name="WMIID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <Association Name="FK_Log_OIDs">
+          <End Role="OIDs" Type="Self.OIDs" Multiplicity="0..1" />
+          <End Role="Log" Type="Self.Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OIDs">
+              <PropertyRef Name="OIDKey" />
+            </Principal>
+            <Dependent Role="Log">
+              <PropertyRef Name="OIDKey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Log_WMI">
+          <End Role="WMI" Type="Self.WMI" Multiplicity="0..1" />
+          <End Role="Log" Type="Self.Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WMI">
+              <PropertyRef Name="WMIID" />
+            </Principal>
+            <Dependent Role="Log">
+              <PropertyRef Name="WMIID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="uspGetLog" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SearchString" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="Snmp_Client_DBModelStoreContainer">
+          <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OIDs" EntityType="Self.OIDs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WMI" EntityType="Self.WMI" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Log_OIDs" Association="Self.FK_Log_OIDs">
+            <End Role="OIDs" EntitySet="OIDs" />
+            <End Role="Log" EntitySet="Log" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Log_WMI" Association="Self.FK_Log_WMI">
+            <End Role="WMI" EntitySet="WMI" />
+            <End Role="Log" EntitySet="Log" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Snmp_Client_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="LogID" />
+          </Key>
+          <Property Name="LogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OIDKey" Type="Int32" />
+          <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="WMIID" Type="Int32" />
+          <Property Name="IPAddress" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="OID" Relationship="Self.FK_Log_OIDs" FromRole="Log" ToRole="OIDs" />
+          <NavigationProperty Name="WMI" Relationship="Self.FK_Log_WMI" FromRole="Log" ToRole="WMI" />
+        </EntityType>
+        <EntityType Name="OID">
+          <Key>
+            <PropertyRef Name="OIDKey" />
+          </Key>
+          <Property Name="OIDKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Item" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OID1" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Logs" Relationship="Self.FK_Log_OIDs" FromRole="OIDs" ToRole="Log" />
+        </EntityType>
+        <EntityType Name="WMI">
+          <Key>
+            <PropertyRef Name="WMIID" />
+          </Key>
+          <Property Name="WMIID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Logs" Relationship="Self.FK_Log_WMI" FromRole="WMI" ToRole="Log" />
+        </EntityType>
+        <Association Name="FK_Log_OIDs">
+          <End Role="OIDs" Type="Self.OID" Multiplicity="0..1" />
+          <End Role="Log" Type="Self.Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OIDs">
+              <PropertyRef Name="OIDKey" />
+            </Principal>
+            <Dependent Role="Log">
+              <PropertyRef Name="OIDKey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Log_WMI">
+          <End Role="WMI" Type="Self.WMI" Multiplicity="0..1" />
+          <End Role="Log" Type="Self.Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WMI">
+              <PropertyRef Name="WMIID" />
+            </Principal>
+            <Dependent Role="Log">
+              <PropertyRef Name="WMIID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Snmp_Client_DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Logs" EntityType="Self.Log" />
+          <EntitySet Name="OIDs" EntityType="Self.OID" />
+          <EntitySet Name="WMIs" EntityType="Self.WMI" />
+          <AssociationSet Name="FK_Log_OIDs" Association="Self.FK_Log_OIDs">
+            <End Role="OIDs" EntitySet="OIDs" />
+            <End Role="Log" EntitySet="Logs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Log_WMI" Association="Self.FK_Log_WMI">
+            <End Role="WMI" EntitySet="WMIs" />
+            <End Role="Log" EntitySet="Logs" />
+          </AssociationSet>
+          <FunctionImport Name="uspGetLog" ReturnType="Collection(Snmp_Client_DBModel.uspGetLog_Result)">
+            <Parameter Name="SearchString" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="uspGetLog_Result">
+          <Property Type="String" Name="Item" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Value" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="DateTime" Nullable="false" Precision="23" />
+          <Property Type="String" Name="IPAddress" Nullable="true" MaxLength="15" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Snmp_Client_DBModelStoreContainer" CdmEntityContainer="Snmp_Client_DBEntities">
+          <EntitySetMapping Name="Logs">
+            <EntityTypeMapping TypeName="Snmp_Client_DBModel.Log">
+              <MappingFragment StoreEntitySet="Log">
+                <ScalarProperty Name="LogID" ColumnName="LogID" />
+                <ScalarProperty Name="OIDKey" ColumnName="OIDKey" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="WMIID" ColumnName="WMIID" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OIDs">
+            <EntityTypeMapping TypeName="Snmp_Client_DBModel.OID">
+              <MappingFragment StoreEntitySet="OIDs">
+                <ScalarProperty Name="OIDKey" ColumnName="OIDKey" />
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="OID1" ColumnName="OID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WMIs">
+            <EntityTypeMapping TypeName="Snmp_Client_DBModel.WMI">
+              <MappingFragment StoreEntitySet="WMI">
+                <ScalarProperty Name="WMIID" ColumnName="WMIID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="uspGetLog" FunctionName="Snmp_Client_DBModel.Store.uspGetLog">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Snmp_Client_DBModel.uspGetLog_Result">
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
